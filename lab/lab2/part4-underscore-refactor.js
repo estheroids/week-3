@@ -30,8 +30,21 @@
   // Filter according to enrollment that is greater than this variable:
   var minEnrollment = 300;
 
-
   // clean data
+
+  var schoolZipSplit = function(school){
+    if (typeof school.ZIPCODE === 'string'){
+      split = schools[i].ZIPCODE.split(' ');
+      normalized_zip = parseInt(split[0]);
+      schools.ZIPCODE = normalized_zip;
+    }
+  };
+
+_.each(schools, schoolZipSplit);
+
+})
+
+  /*
   for (var i = 0; i < schools.length - 1; i++) {
     // If we have '19104 - 1234', splitting and taking the first (0th) element
     // as an integer should yield a zip in the format above
@@ -41,8 +54,12 @@
       schools[i].ZIPCODE = normalized_zip;
     }
 
+    */
+
     // Check out the use of typeof here — this was not a contrived example.
     // Someone actually messed up the data entry
+
+  /*
     if (typeof schools[i].GRADE_ORG === 'number') {  // if number
       schools[i].HAS_KINDERGARTEN = schools[i].GRADE_LEVEL < 1;
       schools[i].HAS_ELEMENTARY = 1 < schools[i].GRADE_LEVEL < 6;
@@ -55,6 +72,7 @@
       schools[i].HAS_HIGH_SCHOOL = schools[i].GRADE_LEVEL.toUpperCase().indexOf('HIGH') >= 0;
     }
   }
+  */
 
   // filter data
   var filtered_data = [];

@@ -47,7 +47,7 @@
   // filter data
   var filtered_data = [];
   var filtered_out = [];
-  for (var i = 0; i < schools.length - 1; i++) {
+  for (var i = 0; i < schools.length - 1; i++){
     // These really should be predicates!
     isOpen = schools[i].ACTIVE.toUpperCase() == 'OPEN';
     isPublic = (schools[i].TYPE.toUpperCase() !== 'CHARTER' ||
@@ -68,8 +68,10 @@
     } else {
       filtered_out.push(schools[i]);
     }
-  }
+};
+
   console.log('Included:', filtered_data.length);
+
   console.log('Excluded:', filtered_out.length);
 
   // main loop
